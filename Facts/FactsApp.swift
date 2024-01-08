@@ -13,6 +13,7 @@ struct FactsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            
         }
         .modelContainer(for: Person.self)
     }

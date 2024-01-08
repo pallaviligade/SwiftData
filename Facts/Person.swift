@@ -14,12 +14,12 @@ class Person
     var name: String
     var details: String
     var emailID: String
-    var event: Event?
+    var metAt: Event?
     
-    init(name: String, details: String, emailID: String, event: Event? = nil) {
+    init(name: String, details: String, emailID: String, metAt: Event? = nil) {
         self.name = name
         self.details = details
         self.emailID = emailID
-        self.event = event
+        self.metAt = metAt
     }
 }

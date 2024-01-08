@@ -9,7 +9,13 @@ import SwiftUI
 import SwiftData
 
 struct EditPersonView: View {
+    @Environment(\.modelContext) var modelContext
    @Bindable var person: Person
+    @Query(sort:[
+        SortDescriptor(\Event.name),
+        SortDescriptor(\Event.location)
+    ]) var events: [Event]
+    
     
     var body: some View {
         Form {
@@ -22,7 +28,20 @@ struct EditPersonView: View {
                     .textInputAutocapitalization(.never)
             }
             
-            section("Where did you meet")
+            Section("Where did you meet") {
+                Picker("Met At", selection: $person.metAt) {
+                    Text("Unknow event")
+                    if events.isEmpty == false{
+                        Divider()
+                    
+                        ForEach(events) { event in
+                            Text(event.name)
+                        }
+                    }
+                    
+                }
+                Button("Add Event", action: addEvent)
+            }
             Section("Notes") {
                 TextField("Deatils about this person", text: $person.details, axis: .vertical)
             }
@@ -30,8 +49,13 @@ struct EditPersonView: View {
         .navigationTitle($person.name)
         .navigationBarTitleDisplayMode(.inline)
     }
+    
+    func addEvent() {
+       let evet = Event(name: "", location: "")
+        modelContext.insert(evet)
+    }
 }
 
 //#Preview {
-//    EditPerson()
+//    EditPersonView()
 //}
