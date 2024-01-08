@@ -10,6 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
+    
     @State private var path = [Person]()
   
     @State private var sortOrder =  [SortDescriptor(\Person.name)]
