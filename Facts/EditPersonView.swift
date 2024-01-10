@@ -10,11 +10,14 @@ import SwiftData
 
 struct EditPersonView: View {
     @Environment(\.modelContext) var modelContext
-   @Bindable var person: Person
+  
     @Query(sort:[
         SortDescriptor(\Event.name),
         SortDescriptor(\Event.location)
     ]) var events: [Event]
+    
+    @Bindable var person: Person
+    @Binding var navigationPath: NavigationPath
     
     
     var body: some View {
@@ -40,7 +43,7 @@ struct EditPersonView: View {
                     }
                     
                 }
-                Button("Add Event", action: addEvent)
+                Button("Add a new Event", action: addEvent)
             }
             Section("Notes") {
                 TextField("Deatils about this person", text: $person.details, axis: .vertical)
@@ -48,11 +51,15 @@ struct EditPersonView: View {
         }
         .navigationTitle($person.name)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(for: Event.self) { event in
+            EditEventView(event: event)
+        }
     }
     
     func addEvent() {
        let evet = Event(name: "", location: "")
         modelContext.insert(evet)
+        navigationPath.append(evet)
     }
 }
 

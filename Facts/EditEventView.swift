@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditEventView: View {
-    @Binding var event: Event
+    @Bindable var event: Event
     
     var body: some View {
         Form{
