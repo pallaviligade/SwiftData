@@ -19,6 +19,7 @@
 		8ED5E35A2B4851210092CA3A /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED5E3592B4851210092CA3A /* PeopleView.swift */; };
 		8ED5E35C2B48C0240092CA3A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED5E35B2B48C0240092CA3A /* Event.swift */; };
 		8ED5E35E2B48C0D80092CA3A /* EditEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED5E35D2B48C0D80092CA3A /* EditEventView.swift */; };
+		8ED5E3962B5171B10092CA3A /* Previwer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED5E3952B5171B10092CA3A /* Previwer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		8ED5E3592B4851210092CA3A /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
 		8ED5E35B2B48C0240092CA3A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		8ED5E35D2B48C0D80092CA3A /* EditEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventView.swift; sourceTree = "<group>"; };
+		8ED5E3952B5171B10092CA3A /* Previwer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previwer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				8ED5E3572B4711FB0092CA3A /* EditPersonView.swift */,
 				8ED5E35B2B48C0240092CA3A /* Event.swift */,
 				8ED5E35D2B48C0D80092CA3A /* EditEventView.swift */,
+				8ED5E3952B5171B10092CA3A /* Previwer.swift */,
 				8ED5E32F2B4456F80092CA3A /* Assets.xcassets */,
 				8ED5E3312B4456F80092CA3A /* Preview Content */,
 			);
@@ -277,6 +280,7 @@
 				8ED5E3562B45AD170092CA3A /* Person.swift in Sources */,
 				8ED5E32E2B4456F70092CA3A /* ContentView.swift in Sources */,
 				8ED5E35C2B48C0240092CA3A /* Event.swift in Sources */,
+				8ED5E3962B5171B10092CA3A /* Previwer.swift in Sources */,
 				8ED5E32C2B4456F70092CA3A /* FactsApp.swift in Sources */,
 				8ED5E35E2B48C0D80092CA3A /* EditEventView.swift in Sources */,
 			);

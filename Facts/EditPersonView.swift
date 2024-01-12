@@ -34,11 +34,13 @@ struct EditPersonView: View {
             Section("Where did you meet") {
                 Picker("Met At", selection: $person.metAt) {
                     Text("Unknow event")
+                        .tag(Optional<Event>.none)
                     if events.isEmpty == false{
                         Divider()
                     
                         ForEach(events) { event in
                             Text(event.name)
+                                .tag(Optional(event))
                         }
                     }
                     
