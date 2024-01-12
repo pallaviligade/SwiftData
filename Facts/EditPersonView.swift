@@ -65,6 +65,12 @@ struct EditPersonView: View {
     }
 }
 
-//#Preview {
-//    EditPersonView()
-//}
+#Preview {
+    do{
+       let previwer = try Previwer()
+        return EditPersonView(person: previwer.peron, navigationPath: .constant(NavigationPath()))
+            .modelContainer(previwer.modelContainer)
+    }catch {
+        return Text("Failed to create previewer \(error.localizedDescription)")
+    }
+}

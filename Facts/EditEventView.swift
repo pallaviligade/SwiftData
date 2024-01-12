@@ -24,6 +24,12 @@ struct EditEventView: View {
     }
 }
 
-//#Preview {
-//    EditEventView()
-//}
+#Preview {
+    do{
+        let previwer = try Previwer()
+        return EditEventView(event: previwer.event)
+            .modelContainer(previwer.modelContainer)
+    }catch {
+        return Text("Failed to previwers:\(error.localizedDescription)")
+    }
+}
