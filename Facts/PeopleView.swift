@@ -46,5 +46,10 @@ struct PeopleView: View {
 }
 
 #Preview {
-    PeopleView()
+    do{
+     let previewer = try Previwer()
+        return PeopleView().modelContainer(previewer.modelContainer)
+    }catch {
+        return Text("Failed to load previwer:\(error.localizedDescription)")
+    }
 }

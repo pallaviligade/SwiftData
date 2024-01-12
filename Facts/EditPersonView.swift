@@ -5,23 +5,33 @@
 //  Created by Pallavi on 04.01.24.
 //
 
+import PhotosUI
 import SwiftUI
 import SwiftData
 
 struct EditPersonView: View {
     @Environment(\.modelContext) var modelContext
-  
+    @Bindable var person: Person
+    @Binding var navigationPath: NavigationPath
+    @State private var selectedphotoItem: PhotosPickerItem?
+    
     @Query(sort:[
         SortDescriptor(\Event.name),
         SortDescriptor(\Event.location)
     ]) var events: [Event]
     
-    @Bindable var person: Person
-    @Binding var navigationPath: NavigationPath
-    
-    
     var body: some View {
         Form {
+            Section{
+                if let imageData = person.photo, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage).resizable().scaledToFit()
+                }
+                PhotosPicker(selection: $selectedphotoItem, matching: .images) {
+                    Label("Select a photo", systemImage: "person")
+                }
+            
+                
+            }
             Section {
                 TextField("Name", text: $person.name)
                     .textContentType(.name)
@@ -56,12 +66,19 @@ struct EditPersonView: View {
         .navigationDestination(for: Event.self) { event in
             EditEventView(event: event)
         }
+        .onChange(of: selectedphotoItem, loadPhoto)
     }
     
     func addEvent() {
        let evet = Event(name: "", location: "")
         modelContext.insert(evet)
         navigationPath.append(evet)
+    }
+    
+    func loadPhoto() {
+        Task { @MainActor in
+            person.photo = try await selectedphotoItem?.loadTransferable(type: Data.self)
+        }
     }
 }
 

@@ -52,5 +52,10 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    do{
+     let previewer = try Previwer()
+        return ContentView().modelContainer(previewer.modelContainer)
+    }catch {
+        return Text("Failed to load previwer:\(error.localizedDescription)")
+    }
 }
